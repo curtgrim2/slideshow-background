@@ -1,0 +1,97 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+body{
+
+background-color: black;
+background-color: rgba(255,255,255,0.6);
+background-blend-mode: lighten;
+
+-webkit-transition: background 1.5s linear;
+-moz-transition: background 1.5s linear;
+-o-transition: background 1.5s linear;
+-ms-transition: background 1.5s linear;
+transition: background 1.5s linear;
+}
+
+#test{
+  margin: 0 auto 0 auto;
+  color:red;
+  background-color:rgba(0,0,0,.8);
+  text-align:center;
+  height:15%;
+  width:25%;
+
+  font-family: Impact, fantasy;
+
+  display: flex;
+   justify-content: center; /*Centers text horizontally*/
+   align-items: center; /*Centers text verically*/
+
+  position:relative;
+  top:30%;
+}
+
+</style>
+</head>
+<body  id="body">
+<img id ="" src=""/>
+<div id="test" >
+"DID YOU FORGET SOMETHING?"
+
+</div>
+</body>
+<script>
+var body = document.getElementById("body");
+
+var totalpic = new Array();
+
+totalpic[0] = new Image();
+totalpic[0].src = 'shannon1.jpg';
+
+totalpic[1] = new Image();
+totalpic[1].src = 'shannon2.jpg';
+
+totalpic[2] = new Image();
+totalpic[2].src = 'shannon3.jpg';
+
+var changepic = 0;
+
+body.style.backgroundImage = 'url(' + totalpic[changepic].src +')';
+body.style.backgroundSize = '100% 100%';
+body.style.backgroundRepeat ='no-repeat';
+
+function changeBackground(){
+
+  if(changepic+1 != totalpic.length){
+    changepic++;
+    //console.log("Changed to picture number "+ changepic);
+    body.style.backgroundImage = 'url(' + totalpic[changepic].src +')';
+    //setTimeout(time2changeBackground,1000);
+
+  }
+  else{
+    changepic = 0;
+    //console.log("RESET TO PIC "+ changepic);
+    body.style.backgroundImage = 'url(' + totalpic[changepic].src +')';
+  }
+
+
+}
+
+
+function changeBackground2(){
+  changepic++;
+  console.log("Changed to picture number "+ changepic);
+  body.style.backgroundImage = 'url(' + totalpic[changepic].src +')';
+
+  clearInterval(whileloop);//stops the "while loop"
+}
+
+var whileloop = setInterval(changeBackground,5000);
+
+
+
+</script>
+</html>
